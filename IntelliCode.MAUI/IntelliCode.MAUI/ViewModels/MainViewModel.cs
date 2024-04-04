@@ -21,6 +21,7 @@ internal class MainViewModel : BaseViewModel
             if (_Person.Id != value)
             {
                 _Person.Id = value;
+                OnPropertyChanged(nameof(Id));
             }
         }
     }
@@ -35,6 +36,7 @@ internal class MainViewModel : BaseViewModel
             if (_Person.Name != value) 
             {
                 _Person.Name = value;
+                OnPropertyChanged(nameof(Name));
             }
         }
     }
@@ -50,6 +52,7 @@ internal class MainViewModel : BaseViewModel
             if (_Person.Email != value)
             {
                 _Person.Email = value;
+                OnPropertyChanged(nameof(Email));
             }
         }
     }
@@ -65,6 +68,7 @@ internal class MainViewModel : BaseViewModel
             if (_Person.Age != value)
             {
                 _Person.Age = value;
+                OnPropertyChanged(nameof(Age));
             }
         }
     }
@@ -80,6 +84,7 @@ internal class MainViewModel : BaseViewModel
             if (_Person.BirthDate != value)
             {
                 _Person.BirthDate = value;
+                OnPropertyChanged(nameof(BirthDate));
             }
         }
     }
