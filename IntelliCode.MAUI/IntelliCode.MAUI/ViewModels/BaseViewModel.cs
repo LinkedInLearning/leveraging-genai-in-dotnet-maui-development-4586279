@@ -1,6 +1,6 @@
 ﻿
 namespace IntelliCode.MAUI.ViewModels;
 
-internal class BaseViewModel
+internal abstract class BaseViewModel
 {
 }
