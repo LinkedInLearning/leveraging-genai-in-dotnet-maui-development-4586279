@@ -14,12 +14,12 @@ internal class AnotherStringTest
     { return a10 + b10; }
     internal string Add11(string a11, string b11)
     { return a11 + b11; }
-    internal string Add12(string a12, string b12)
-    { return a12 + b12; }
+    internal string Add12(int a12, int b12)
+    { return a12.ToString() + b12.ToString(); }
     internal string Add13(string a13, string b13)
-    { return a13 + b13; }
-    internal string Add14(string a14, string b14)
-    { return a14 + b14; }
+    { return string.Format("{0}{1}", a13, b13); }
+    internal string Add14(string a14)
+    { return a14 + "foo"; }
     internal string Add15(string a15, string b15)
-    { return a15 + b15; }
+    { return a15 + b15 + "bar"; }
 }
