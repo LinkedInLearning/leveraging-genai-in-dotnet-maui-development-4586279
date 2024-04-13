@@ -12,6 +12,14 @@ namespace Copilot.MAUI
             InitializeComponent();
         }
 
+        protected override async void OnAppearing()
+        {
+#if ANDROID
+            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+#endif
+            base.OnAppearing();
+        }
+
         private void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
