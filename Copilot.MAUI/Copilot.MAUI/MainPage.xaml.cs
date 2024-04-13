@@ -1,4 +1,6 @@
 ﻿
+using Copilot.MAUI.ViewModels;
+
 namespace Copilot.MAUI
 {
     public partial class MainPage : ContentPage

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Copilot.MAUI.ViewModels
 {
@@ -44,6 +45,36 @@ namespace Copilot.MAUI.ViewModels
                     return;
                 _Longitude = value;
                 OnPropertyChanged(nameof(Longitude));
+            }
+        }
+
+        private Command? _GetLocation;
+        public Command GetLocation 
+        { 
+            get
+            {
+                return _GetLocation ??= new Command(async () => await GetLocationAsync());
+            }
+        }
+
+        public async Task GetLocationAsync()
+        {
+            try
+            {
+                var location = await Geolocation.GetLastKnownLocationAsync();
+
+                if (location != null)
+                {
+                    Latitude = location.Latitude;
+                    Longitude = location.Longitude;
+                }
+            }
+            catch (Exception ex)
+            {
+                await MainThread.InvokeOnMainThreadAsync(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                });
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Copilot.MAUI.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace Copilot.MAUI
 {
@@ -13,7 +14,8 @@ namespace Copilot.MAUI
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .Services.AddTransient(typeof(MainViewModel));
 
 #if DEBUG
     		builder.Logging.AddDebug();
