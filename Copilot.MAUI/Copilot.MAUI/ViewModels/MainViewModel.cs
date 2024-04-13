@@ -21,16 +21,29 @@ namespace Copilot.MAUI.ViewModels
             }
         }
 
-        private double _Price;
-        public double Price
+        private double _Latitude;
+        public double Latitude
         {
-            get => _Price;
+            get => _Latitude;
             set
             {
-                if (_Price == value)
+                if (_Latitude == value)
                     return;
-                _Price = value;
-                OnPropertyChanged(nameof(Price));
+                _Latitude = value;
+                OnPropertyChanged(nameof(Latitude));
+            }
+        }
+
+        private double _Longitude;
+        public double Longitude
+        {
+            get => _Longitude;
+            set
+            {
+                if (_Longitude == value)
+                    return;
+                _Longitude = value;
+                OnPropertyChanged(nameof(Longitude));
             }
         }
     }
