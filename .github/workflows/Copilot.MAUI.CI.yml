@@ -21,7 +21,9 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet build ./Copilot.MAUI --no-restore
+      run: dotnet build --no-restore
+      working-directory: ./Copilot.MAUI
 
     - name: Test
       run: dotnet test ./Copilot.MAUI --no-build --verbosity normal
+      working-directory: ./Copilot.MAUI
