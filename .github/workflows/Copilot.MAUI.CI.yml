@@ -18,7 +18,7 @@ jobs:
 
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./Copilot.MAUI
+      working-directory: ./path/to/your/solution
 
     - name: Build
       run: dotnet build --no-restore
@@ -27,3 +27,38 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: ./Copilot.MAUI
+
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Install MAUI workload
+      run: dotnet workload install microsoft-android-sdk-full
+
+    - name: Restore dependencies
+      run: dotnet restore 
+      working-directory: './Copilot.MAUI'
+
+    - name: Build
+      run: dotnet build  --no-restore
+      working-directory: './Copilot.MAUI'
+
+    - name: Test
+      run: dotnet test --no-build
+      working-directory: './Copilot.MAUI'
+
