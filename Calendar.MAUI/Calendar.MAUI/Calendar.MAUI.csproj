@@ -54,6 +54,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\background.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiSplashScreen Include="Resources\Splash\splash.jpeg" BaseSize="1028,1028" />
 	</ItemGroup>
 
