@@ -29,6 +29,10 @@ namespace Copilot.MAUI
             }
         }
 
+        /// <summary>
+        /// Do this to change the current theme
+        /// </summary>
+        /// <param name="themeName"></param>
         void SetCurrentTheme(string themeName, ResourceDictionary theme)
         {
             ICollection<ResourceDictionary> mergedDictionaries = this.Resources.MergedDictionaries;
