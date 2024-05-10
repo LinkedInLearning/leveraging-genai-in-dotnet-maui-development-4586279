@@ -83,7 +83,7 @@ namespace Copilot.MAUI.ViewModels
         {
             get
             {
-                return _ThemeChanger ??= new Command(async () => await Shell.Current.GoToAsync(""));
+                return _ThemeChanger ??= new Command(async () => await Shell.Current.GoToAsync(nameof(StyleSelector)));
             }
         }
     }
