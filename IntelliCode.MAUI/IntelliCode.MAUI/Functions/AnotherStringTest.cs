@@ -8,8 +8,8 @@ namespace IntelliCode.MAUI.Functions;
 
 internal class AnotherStringTest
 {
-    internal string Add9(string a9, string b9)
-    { return a9 + b9; }
+    internal string Add9(string parameter1, string parameter2)
+    { return parameter1 + parameter2; }
     internal string Add10(string a10, string b10)
     { return a10 + b10; }
     internal string Add11(string a11, string b11)
