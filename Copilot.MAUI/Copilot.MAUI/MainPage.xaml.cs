@@ -12,14 +12,6 @@ namespace Copilot.MAUI
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
-        {
-#if ANDROID
-            var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-#endif
-            base.OnAppearing();
-        }
-
         private void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
@@ -31,6 +23,31 @@ namespace Copilot.MAUI
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
-    }
+
+        override protected async void OnAppearing()
+        {
+            await RequestLocationPermissionAsync();
+
+            base.OnAppearing();
+
+        }
+
+        public async Task RequestLocationPermissionAsync()
+        {
+            var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+
+            if (status != PermissionStatus.Granted)
+            {
+                status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+            }
+
+            if (status != PermissionStatus.Granted)
+            {
+                // Permission was not granted, notify the user.
+                // You might want to update your UI to reflect this.
+            }
+        }
+
+}
 
 }
