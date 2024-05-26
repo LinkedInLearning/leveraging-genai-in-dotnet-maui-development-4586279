@@ -77,5 +77,14 @@ namespace Copilot.MAUI.ViewModels
                 });
             }
         }
+
+        private Command? _ThemeChanger;
+        public Command ThemeChanger
+        {
+            get
+            {
+                return _ThemeChanger ??= new Command(async () => await Shell.Current.GoToAsync(nameof(StyleSelector)));
+            }
+        }
     }
 }
