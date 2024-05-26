@@ -24,6 +24,12 @@
                 SemanticProperties.Hint="Get's device location"
                 HorizontalOptions="Fill"
                 Command="{Binding GetLocation}"/>
+            <Button
+                x:Name="ThemeBtn"
+                Text="Theme Changer" 
+                SemanticProperties.Hint="Theme Changer"
+                HorizontalOptions="Fill"
+                Command="{Binding ThemeChanger}"/>
         </VerticalStackLayout>
     </ScrollView>
 
