@@ -26,7 +26,7 @@ To resolve this issue:
 
  ### Instructor
 
-MKevin Ford
+Kevin Ford
 
 Independent Machine Learning and Mobile Consultant
                             
